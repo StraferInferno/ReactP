@@ -6,21 +6,15 @@ import React from "react";
 export default class Tabs extends React.Component{
   constructor(){
     super();
-    this.state={
-      ActiveIndex: 0,
-      isActiveTab:false,
-    }
-
   }
 
-  handleTabClick(index){
-    //this.props.onActivate(index);
-    this.setState({ActiveIndex : index});
-  }
+  handleTabClick(ActiveIndex){
+    this.props.onActivate(ActiveIndex);
+      }
 
   renderTabs(){
     return this.props.value.map((tab,index)=> {
-      var style= this.state.ActiveIndex === index ? "activeTab tab" : " tab";
+      var style= this.props.ActiveIndex === index ? "activeTab tab" : " tab";
       var clickHandler =this.handleTabClick.bind(this,index);
       return(
         <div key={tab.name} class={style} onClick={clickHandler}>{tab.name}</div>
@@ -30,7 +24,7 @@ export default class Tabs extends React.Component{
 
   renderPanel(){
     return this.props.value.map((val,index ) => {
-      if (this.state.ActiveIndex === index )
+      if (this.props.ActiveIndex === index )
               return (
         <div key={val.name} class="tabPanels">{val.description}</div>
       );
@@ -55,5 +49,6 @@ export default class Tabs extends React.Component{
 }
 
 Tabs.propTypes = {
-  value: React.PropTypes.array.isRequired
+  value: React.PropTypes.array.isRequired,
+  onActivate : React.PropTypes.func.isRequired
 };

@@ -24,6 +24,7 @@ export default class TodosPage extends React.Component{
       text:"Initial text",
       loading:false,
       data : TodoStore.getData(),
+      ActiveIndex: 0,
     }
   }
 
@@ -70,6 +71,11 @@ export default class TodosPage extends React.Component{
         this.setState({text: this.refs.myInput.value});
   }
 
+  handleTab (ActiveIndex){
+    console.log(ActiveIndex);
+  this.setState({ActiveIndex});
+  }
+
   render() {
     const { todos, data} = this.state;
     let TodoComponents,DataComponent;
@@ -83,7 +89,7 @@ export default class TodosPage extends React.Component{
           TodoComponents = <Loading type='cubes' class="loaded" color='#e3e3e3'></Loading>
     }
 
-    DataComponent = <Tabs value={ data } />;
+    DataComponent = <Tabs onActivate={this.handleTab.bind(this)} ActiveIndex={this.state.ActiveIndex} value={ data } />;
 
 
     return(
