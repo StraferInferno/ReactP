@@ -1,0 +1,55 @@
+.title{
+text-align: center;
+}
+
+h1 {
+  margin: 3px 0px;
+  display: inline-block;
+}
+
+div {
+  font-size: 14px;
+}
+
+header{
+  font-size: 20px;
+  color: #19469D;
+}
+
+
+footer {
+  font-size: x-small;
+  color: crimson;
+}
+
+.test {
+  color : #445588;
+}
+
+.ip{
+  padding: 6px;
+}
+
+button{
+  margin-left:5px;
+}
+
+.demo{
+  margin-top: 10px;
+}
+.tab {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px ;
+  border-bottom: 4px solid;
+  border-bottom-color: #000;
+  cursor: pointer;
+}
+
+.activeTab  {
+  border-bottom-color: #ccc;
+}
+
+.tabPanels {
+  padding: 10px;
+}
